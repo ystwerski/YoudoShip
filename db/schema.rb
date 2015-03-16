@@ -11,7 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301222522) do
+ActiveRecord::Schema.define(version: 20150309012030) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "commentor_id", limit: 4
+    t.text     "comment",      limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "sender_id",             limit: 4
+    t.integer  "taker_id",              limit: 4
+    t.string   "shipping_from_address", limit: 255
+    t.string   "shipping_from_city",    limit: 255
+    t.string   "shipping_from_state",   limit: 255
+    t.string   "shipping_to_address",   limit: 255
+    t.string   "shipping_to_city",      limit: 255
+    t.string   "shipping_to_state",     limit: 255
+    t.text     "notes",                 limit: 65535
+    t.decimal  "miles",                               precision: 6, scale: 1
+    t.decimal  "kilometer",                           precision: 6, scale: 1
+    t.datetime "pickup_date"
+    t.datetime "dropoff_date"
+    t.integer  "packages",              limit: 4
+    t.decimal  "subtotal",                            precision: 7, scale: 2
+    t.decimal  "tax",                                 precision: 6, scale: 2
+    t.decimal  "total",                               precision: 7, scale: 2
+    t.boolean  "confirmed",             limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             limit: 255,                         default: "",  null: false

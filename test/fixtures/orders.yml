@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: 1
+  taker_id: 1
+  shipping_from_address: MyString
+  shipping_from_city: MyString
+  shipping_from_state: MyString
+  shipping_to_address: MyString
+  shipping_to_city: MyString
+  shipping_to_state: MyString
+  notes: MyText
+  miles: 9.99
+  kilometer: 9.99
+  pickup_date: 2015-03-08 20:20:31
+  dropoff_date: 2015-03-08 20:20:31
+  packages: 1
+  subtotal: 9.99
+  tax: 9.99
+  total: 9.99
+  confirmed: false
+
+two:
+  sender_id: 1
+  taker_id: 1
+  shipping_from_address: MyString
+  shipping_from_city: MyString
+  shipping_from_state: MyString
+  shipping_to_address: MyString
+  shipping_to_city: MyString
+  shipping_to_state: MyString
+  notes: MyText
+  miles: 9.99
+  kilometer: 9.99
+  pickup_date: 2015-03-08 20:20:31
+  dropoff_date: 2015-03-08 20:20:31
+  packages: 1
+  subtotal: 9.99
+  tax: 9.99
+  total: 9.99
+  confirmed: false

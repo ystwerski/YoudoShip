@@ -1,0 +1,24 @@
+<h1>Your Package Info:</h1>
+<h2>Shipping From:</h2>
+<h3>Address: <p><%= @address_from %></p>
+<br>
+<br>
+City: <p><%= @city_from %></p>
+<br>
+<br>
+State: <p><%= @state_from %></p>
+<br>
+<br>
+</h3>
+<h2>Shipping To:</h2>
+<h3>Address: <p><%= @address_to %></p>
+<br>
+<br>
+City: <p><%= @city_to %></p>
+<br>
+<br>
+State: <p><%= @state_to %></p>
+</h3>
+<%= form_tag "/sending_shipments/#{@order.id}", :method => :patch do %>
+	<p><%= submit_tag "Present package to prospective shippers!" %></p>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Traveller Info</h1>
+
+<%= form_tag takers_path do %>
+	<h2>Leaving From:</h2>
+	<%= label_tag "What address are you leaving from?" %>
+	<%= text_field_tag :travelling_from_address %>
+	<br>
+	<br>
+	<%= label_tag "What city  are you leaving from?" %>
+	<%= text_field_tag :travelling_from_city %>
+	<br>
+	<br>
+	<%= label_tag "What state are you leaving from?" %>
+	<%= text_field_tag :travelling_from_state %>
+	<br>
+	<br>
+	<h2>Going To:</h2>
+	<%= label_tag "What address are you travelling to?" %>
+	<%= text_field_tag :travelling_to_address %>
+	<br>
+	<br>
+	<%= label_tag "What city are you travelling to?" %>
+	<%= text_field_tag :travelling_to_city %>
+	<br>
+	<br>
+	<%= label_tag "What state are you travelling to?" %>
+	<%= text_field_tag :travelling_to_state %>
+	<br>
+	<br>
+	<%= submit_tag "Check out prospective packages!" %>
+<% end %>
