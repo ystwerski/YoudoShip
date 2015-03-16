@@ -1,5 +1,6 @@
 class SendingShipmentsController < ApplicationController
 	
+
 	def new
 	end
 
@@ -10,10 +11,16 @@ class SendingShipmentsController < ApplicationController
 		# time = params[:time]
 		# time = time.split(':')
 		# time = time.join
-		@order = Order.new({:shipping_from_address => params[:shipping_from], :shipping_to_address => params[:shipping_to], :shipping_from_city => params[:shipping_from_city], :shipping_from_state => params[:shipping_from_state], :shipping_to_address => params[:shipping_to_address], :shipping_to_city => params[:shipping_to_city], :shipping_to_state => params[:shipping_to_state], :confirmed => false, :packages => params[:packages]})
+		@shipping_from = ShippingFrom.create({:address => params[:shipping_from] + " " + params[:shipping_from_city] + ", " + params[:shipping_from_state]})
+
+		@shipping_to = ShippingTo.create({:address => params[:shipping_to_address] + " " + params[:shipping_to_city] + ", " + params[:shipping_to_state]})
+
+		@order = Order.new({:shipping_from_address => params[:shipping_from], :shipping_to_address => params[:shipping_to], :shipping_from_city => params[:shipping_from_city], :shipping_from_state => params[:shipping_from_state], :shipping_to_address => params[:shipping_to_address], :shipping_to_city => params[:shipping_to_city], :shipping_to_state => params[:shipping_to_state], :confirmed => false, :packages => params[:packages], :shipping_froms_id => @shipping_from.id, :shipping_tos_id => @shipping_to.id})
+		
 		if current_user
 			@order.update({:sender_id => current_user.id})
 		end
+		
 		@order.save
 		@address_from = @order.shipping_from_address
 		@city_from = @order.shipping_from_city

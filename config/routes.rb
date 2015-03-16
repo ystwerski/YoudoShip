@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post '/takers' => 'takers#create', :as => :informing_taker
   # resources :sending_shipments
   # resources :taking_shipments
+  
 end

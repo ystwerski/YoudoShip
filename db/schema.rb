@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150309012030) do
+ActiveRecord::Schema.define(version: 20150316053850) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -40,6 +40,25 @@ ActiveRecord::Schema.define(version: 20150309012030) do
     t.decimal  "tax",                                 precision: 6, scale: 2
     t.decimal  "total",                               precision: 7, scale: 2
     t.boolean  "confirmed",             limit: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deadline"
+    t.integer  "shipping_froms_id",     limit: 4
+    t.integer  "shipping_tos_id",       limit: 4
+  end
+
+  create_table "shipping_froms", force: :cascade do |t|
+    t.string   "address",    limit: 255
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "shipping_tos", force: :cascade do |t|
+    t.string   "address",    limit: 255
+    t.float    "latitude",   limit: 24
+    t.float    "longitude",  limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,6 @@
 <h1>Traveller Info</h1>
 
-<%= form_tag takers_path do %>
+<%= form_tag takers_path, :method => :get do %>
 	<h2>Leaving From:</h2>
 	<%= label_tag "What address are you leaving from?" %>
 	<%= text_field_tag :travelling_from_address %>
