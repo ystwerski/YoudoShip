@@ -1,0 +1,17 @@
+<table>
+	<tr>
+		<td>Package-pickup distance from your departing location</td>
+		<td>Package-dropoff distance from your arriving location</td>
+		<td>Package size</td>
+		<td>Package deadline (Package must arrive before this day and time)</td>
+		<td>COD</td>
+	</tr>
+	<tr>
+	<% @orders.each do |order| %>
+		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @address_from) %></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<% end %>
+</table>
