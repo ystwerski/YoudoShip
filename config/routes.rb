@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/' => 'general_infos#index'
   get '/home' => 'general_infos#index'
+  get '/general_infos' => 'general_infos#index'
   get '/sending_shipments/new' => 'sending_shipments#new', :as => :new_sending_shipment
   post '/sending_shipments' => 'sending_shipments#create', :as => :sending_shipment
   patch '/sending_shipments/:id' => 'sending_shipments#update', :as => :updating_shipment
