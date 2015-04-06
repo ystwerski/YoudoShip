@@ -29,6 +29,10 @@ gem 'quiet_assets'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'devise'
+gem 'unirest'
+gem 'easypost'
+gem 'geokit'
+gem 'active_shipping'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

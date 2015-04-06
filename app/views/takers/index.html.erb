@@ -1,17 +1,27 @@
-<table>
+<table width="1000">
 	<tr>
-		<td>Package-pickup distance from your departing location</td>
-		<td>Package-dropoff distance from your arriving location</td>
-		<td>Package size</td>
-		<td>Package deadline (Package must arrive before this day and time)</td>
-		<td>COD</td>
+		<th>packg #</th>
+		<!-- <td>Package-pickup distance from your departing location</td> -->
+		<th>Package Pickup Dist.</th>
+		<!-- <td>Package-dropoff distance from your arriving location</td> -->
+		<th>Package Dropoff Dist.</th>
+		<th>Package size</th>
+		<!-- <td>Package deadline (Package must arrive before this day and time)</td> -->
+		<th>Package Deadline</th>
+		<th>COD</th>
+		<th>Take It!</th>
 	</tr>
-	<tr>
+
 	<% @orders.each do |order| %>
-		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @address_from) %></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<% end %>
+	<tr>
+		<td><%= @counter %></td>
+		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @user_address_from).round(2) %></td>
+		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_to.address), @user_address_to).round(2) %></td>
+		<td>i</td>
+		<td>l</td>
+		<td><%= number_to_currency(10.0) %></td>
+		<td><a href="/takers/<%=order.id%>">GO</a></td>
+	</tr>
+	<% @counter += 1 %>
+	<% end %>
 </table>

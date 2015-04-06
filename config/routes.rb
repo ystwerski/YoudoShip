@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/takers' => 'takers#index', :as => :takers
   get '/takers/new' => 'takers#new', :as => :new_taker
   post '/takers' => 'takers#create', :as => :informing_taker
+  get '/takers/:id' => 'takers#show'
   # resources :sending_shipments
   # resources :taking_shipments
   

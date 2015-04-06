@@ -5,29 +5,53 @@ class SendingShipmentsController < ApplicationController
 	end
 
 	def create
+
+		EasyPost.api_key = 'gY8ZokYkvssGDwvRes5s4A'
+		@shipping_from = ShippingFrom.create({:address => params[:shipping_from] + " " + params[:shipping_from_city] + ", " + params[:shipping_from_state]})
+		shipping_from_zip_code = Geokit::Geocoders::GoogleGeocoder.geocode(@shipping_from.address)
+		@shipping_to = ShippingTo.create({:address => params[:shipping_to_address] + " " + params[:shipping_to_city] + ", " + params[:shipping_to_state]})
+		shipping_to_zip_code = Geokit::Geocoders::GoogleGeocoder.geocode(@shipping_to.address)
+		
+
+packages = ActiveMerchant::Shipping::Package.new(params[:package_weight].to_i * 16,             # 7.5 lbs, times 16 oz/lb.
+                               [params[:package_width].to_i, params[:package_length].to_i, params[:package_height].to_i],        # 15x10x4.5 inches
+                               :units => :imperial)  # not grams, not centimetres
+
+# You live in Beverly Hills, he lives in Ottawa
+origin = ActiveMerchant::Shipping::Location.new( :country => 'US',
+                                       :state => params[:shipping_from_state],
+                                       :city => params[:shipping_from_city],
+                                       :zip => (shipping_from_zip_code))
+
+destination = ActiveMerchant::Shipping::Location.new( :country => 'US',
+                                            :state => params[:shipping_to_state],
+                                            :city => params[:shipping_to_city],
+                                            :postal_code => (shipping_to_zip_code))
+		p packages
+		p origin
+		p destination
 		# date = params[:date]
 		# date = date.split('/')
 		# date = date.join
 		# time = params[:time]
 		# time = time.split(':')
 		# time = time.join
-		@shipping_from = ShippingFrom.create({:address => params[:shipping_from] + " " + params[:shipping_from_city] + ", " + params[:shipping_from_state]})
+		
 
-		@shipping_to = ShippingTo.create({:address => params[:shipping_to_address] + " " + params[:shipping_to_city] + ", " + params[:shipping_to_state]})
 
-		@order = Order.new({:shipping_from_address => params[:shipping_from], :shipping_to_address => params[:shipping_to], :shipping_from_city => params[:shipping_from_city], :shipping_from_state => params[:shipping_from_state], :shipping_to_address => params[:shipping_to_address], :shipping_to_city => params[:shipping_to_city], :shipping_to_state => params[:shipping_to_state], :confirmed => false, :packages => params[:packages], :shipping_froms_id => @shipping_from.id, :shipping_tos_id => @shipping_to.id})
+		@order = Order.new({:confirmed => false, :packages => params[:packages], :shipping_from_id => @shipping_from.id, :shipping_to_id => @shipping_to.id})
 		
 		if current_user
 			@order.update({:sender_id => current_user.id})
 		end
 		
 		@order.save
-		@address_from = @order.shipping_from_address
-		@city_from = @order.shipping_from_city
-		@state_from = @order.shipping_from_state
-		@address_to = @order.shipping_to_address
-		@city_to = @order.shipping_to_city
-		@state_to = @order.shipping_to_state
+		@address_from = params[:shipping_from]
+		@city_from = params[:shipping_from_city]
+		@state_from = params[:shipping_from_state]
+		@address_to = params[:shipping_to_address]
+		@city_to = params[:shipping_to_city]
+		@state_to = params[:shipping_to_state]
       # t.integer :taker_id
       # t.text :notes
       # t.decimal :miles, precision: 6, scale: 1
