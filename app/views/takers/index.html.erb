@@ -9,19 +9,20 @@
 		<!-- <td>Package deadline (Package must arrive before this day and time)</td> -->
 		<th>Package Deadline</th>
 		<th>COD</th>
-		<th>Take It!</th>
+		<th>Owner Details</th>
 	</tr>
 
 	<% @orders.each do |order| %>
 	<tr>
-		<td><%= @counter %></td>
+		<td onclick="highlightThis(this)"><%= @counter %></td>
 		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @user_address_from).round(2) %></td>
 		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_to.address), @user_address_to).round(2) %></td>
 		<td>i</td>
 		<td>l</td>
 		<td><%= number_to_currency(10.0) %></td>
-		<td><a href="/takers/<%=order.id%>">GO</a></td>
+		<td><a href="/takers/<%=order.id%>">View</a></td>
 	</tr>
 	<% @counter += 1 %>
+	</div>
 	<% end %>
 </table>

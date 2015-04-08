@@ -1,3 +1,15 @@
-<% @stuff.each do |attribute| %>
-<h4><%= attribute %></h4>
+<h3>Package shipping from:</h3>
+<p><%= @order.shipping_from.address %></p>
+
+<h3>Package owner:</h3>
+<p><%= @user.first_name %> <%= @user.last_name %></p>
+
+<h3>Comments on this owner:</h3>
+<% @user.comments.each do |comment| %>
+	<ul>
+	<li><%= comment.comment %> - <%= User.find(comment.commentor_id).first_name %></li>
+	</ul>
 <% end %>
+
+<h3>Total packages sent by owner prior to this package:</h3>
+<p><%= @user.total_sent %></p>

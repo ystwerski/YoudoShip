@@ -69,8 +69,8 @@ class TakersController < ApplicationController
 	end
 
 	def show
-		order = Order.find(params[:id])
-		@stuff = [order.id, order.sender_id, order.taker_id, order.shipping_from_id, order.shipping_to_id]
-		p @stuff
+		@order = Order.find(params[:id])
+		@user = User.find(@order.sender_id)
+		# @stuff = [order.id, order.sender_id, order.taker_id, order.shipping_from_id, order.shipping_to_id]
 	end
 end
