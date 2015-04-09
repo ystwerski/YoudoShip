@@ -23,6 +23,7 @@ class TakersController < ApplicationController
 			orders_non_objects_from << list_object.orders
 		end
 		list_to.each do |list_object|
+			p list_object
 			orders_non_objects_to << list_object.orders
 		end
 		orders_objects_from = []
@@ -44,10 +45,8 @@ class TakersController < ApplicationController
 				end
 			end
 		end
-		p orders.count
 		@orders = []
 		orders.each do |order|
-			p order
 			if order.confirmed
 				@orders << order
 			end

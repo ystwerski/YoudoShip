@@ -2,9 +2,10 @@ class GeneralInfosController < ApplicationController
 
 	def index
 		if current_user
-			@greeting = "Hello" + current_user.first_name + "!"
+			@greeting = "Hello " + current_user.first_name + "!"
 		elsif
-			@greeting = "Hello!"
+			redirect_to "/users/sign_in"
+			# @greeting = "Hello!"
 		end
 	end 
 
