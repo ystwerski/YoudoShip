@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/takers/new' => 'takers#new', :as => :new_taker
   post '/takers' => 'takers#create', :as => :informing_taker
   get '/takers/:id' => 'takers#show'
+
+  resources :talk_to_senders
   # resources :sending_shipments
   # resources :taking_shipments
   
