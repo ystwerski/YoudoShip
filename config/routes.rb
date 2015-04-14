@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/takers/:id' => 'takers#show'
   # resources :sending_shipments
   # resources :taking_shipments
+  resources :talk_to_senders
   
 end

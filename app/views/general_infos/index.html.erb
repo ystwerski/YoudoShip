@@ -1,4 +1,12 @@
 <h1><%= @greeting %> What would you like to do today?</h1>
-<h3><%= link_to 'Send a package with someone', new_sending_shipment_path %></h3>
-<a href='/takers/new'><h3>Take a package for someone</h3></a>
-<a href='#'><h3>View my packages</h3></a>
+<a href=<%= new_sending_shipment_path %>><button><h3>Send a package with someone</h3></button></a>
+<br>
+<br>
+<a href='/takers/new'><button><h3>Take a package for someone</h3></button></a>
+<br>
+<br>
+<a href='#'><button><h3>View my packages</h3></button></a>
+
+
+
+<!-- <h3><%= link_to 'Send a package with someone', new_sending_shipment_path %></h3> -->

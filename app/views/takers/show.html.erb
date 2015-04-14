@@ -1,11 +1,27 @@
-<h3>Package shipping from:</h3>
+<table width="550">
+	<tr>
+		<th><h3>Package Owner:</h3></th>
+		<th><h3>Package Shipping From:</h3></th>
+		<th><h3>Package Shipping To:</h3></th>
+	</tr>
+	<tr>
+		<td><p><%= @user.first_name %> <%= @user.last_name %></p></td>
+		<td><p><%= @order.shipping_from.address %></p></td>
+		<td><p><%= @order.shipping_to.address %></p></td>
+	</tr>
+</table>
+
+
+
+
+<!-- <h3>Package shipping from:</h3>
 <p><%= @order.shipping_from.address %></p>
 
 <h3>Package shipping to:</h3>
-<p><%= @order.shipping_to.address %></p>
+<p><%= @order.shipping_to.address %></p> -->
 
-<h3>Package owner:</h3>
-<p><%= @user.first_name %> <%= @user.last_name %></p>
+<!-- <h3>Package owner:</h3>
+<p><%= @user.first_name %> <%= @user.last_name %></p> -->
 
 <h3>Comments on this owner:</h3>
 <% @user.comments.each do |comment| %>
@@ -16,3 +32,24 @@
 
 <h3>Total packages sent by owner prior to this package:</h3>
 <p><%= @user.total_sent %></p>
+
+<h3>Have anything you'd like to clarify with the owner before taking this package?</h3>
+
+<%= form_tag "/talk_to_senders/new", :method => :get do %>
+	<%= hidden_field_tag :order_id, @order.id %>
+	<%= submit_tag "Click here." %>
+<% end %>
+
+
+<!-- <textarea class="form-control" rows="3"></textarea> -->
+
+
+<p>Otherwise, if you're ready to commit to taking this package, hit COMMMIT!!
+
+<br>
+
+Upon hitting COMMIT we'll notify the owner that you are ready to take his package. As soon as he agrees we'll give you his addresses and you'll be on your way!</p>
+
+<%= form_tag "/talk_to_senders/#{@order.id}", :method => :patch do %>
+	<%= submit_tag "COMMIT" %>
+<% end %>
