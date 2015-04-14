@@ -1,5 +1,7 @@
 <%= form_tag "/talk_to_senders" do %>
-	<%= text_field_tag :questions_or_comments_to_sender %>
+	<div class="">
+		<%= text_field_tag :questions_or_comments_to_sender, :class => "whatever" %>
+	</div>
 	<%= hidden_field_tag :order_id, params[:order_id] %>
 	<%= submit_tag "send questions or/and comments" %>
 <% end %>

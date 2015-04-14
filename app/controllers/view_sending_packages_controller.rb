@@ -1,0 +1,2 @@
+class ViewSendingPackagesController < ApplicationController
+end

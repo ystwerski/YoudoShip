@@ -1,0 +1,2 @@
+class ViewTakingPackagesController < ApplicationController
+end
