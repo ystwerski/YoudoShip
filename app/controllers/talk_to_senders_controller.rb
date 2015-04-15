@@ -7,6 +7,12 @@ class TalkToSendersController < ApplicationController
 		@taker = User.find(current_user.id)
 		UserMailer.comments(@sender, @questions_or_comments, @taker, @order).deliver_now
 		# redirect_to home_path
+		flash[:success] = "Congradulations! You have successfully contacted the owner!"
+		redirect_to home_path
+	end
+
+	def new
+		
 	end
 
 	def update
@@ -17,4 +23,5 @@ class TalkToSendersController < ApplicationController
 		UserMailer.confirm_to_sender(@sender, @taker, @order).deliver_now
 		redirect_to home_path
 	end
+
 end

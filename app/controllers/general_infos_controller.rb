@@ -7,6 +7,7 @@ class GeneralInfosController < ApplicationController
 			redirect_to "/users/sign_in"
 			# @greeting = "Hello!"
 		end
-	end 
+	end
+
 
 end

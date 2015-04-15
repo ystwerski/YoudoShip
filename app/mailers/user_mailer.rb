@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-
+  
 	def comments(sender, questions_or_comments, taker, order)
     	@sender = sender
     	@taker = taker
