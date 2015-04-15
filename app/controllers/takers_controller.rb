@@ -13,8 +13,8 @@ class TakersController < ApplicationController
 		@user_address_from = Geocoder.coordinates(user_address_from)
 		@user_address_to = Geocoder.coordinates(user_address_to)
 
-		list_from = ShippingFrom.near(@user_address_from, 10)
-		list_to = ShippingTo.near(@user_address_to, 10)
+		list_from = ShippingFrom.near(@user_address_from, params[:miles_from_place_of_origin_to_shipping_from_address])
+		list_to = ShippingTo.near(@user_address_to, params[:miles_from_takers_destination_to_shipping_to_address])
 
 		orders_non_objects_from = []
 		orders_non_objects_to = []
@@ -47,7 +47,7 @@ class TakersController < ApplicationController
 		end
 		@orders = []
 		orders.each do |order|
-			if order.confirmed
+			if order && order.confirmed
 				@orders << order
 			end
 		end

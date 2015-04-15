@@ -1,31 +1,97 @@
-<h1>Traveller Info</h1>
+<div class="page-header page-header-with-icon">
+<h2>Traveller info</h2>
+</div>
 
-<%= form_tag takers_path, :method => :get do %>
-	<h2>Leaving From:</h2>
-	<%= label_tag "What address are you leaving from?" %>
-	<%= text_field_tag :travelling_from_address %>
-	<br>
-	<br>
-	<%= label_tag "What city  are you leaving from?" %>
-	<%= text_field_tag :travelling_from_city %>
-	<br>
-	<br>
-	<%= label_tag "What state are you leaving from?" %>
-	<%= text_field_tag :travelling_from_state %>
-	<br>
-	<br>
-	<h2>Going To:</h2>
-	<%= label_tag "What address are you travelling to?" %>
-	<%= text_field_tag :travelling_to_address %>
-	<br>
-	<br>
-	<%= label_tag "What city are you travelling to?" %>
-	<%= text_field_tag :travelling_to_city %>
-	<br>
-	<br>
-	<%= label_tag "What state are you travelling to?" %>
-	<%= text_field_tag :travelling_to_state %>
-	<br>
-	<br>
-	<%= submit_tag "Check out prospective packages!" %>
-<% end %>
+
+
+<div class='row'>
+	<div class='col-sm-12'>
+		<!-- <form class="form form-horizontal" method="post" action="#" accept-charset="UTF-8"> -->
+	<div class="jumbotron">	
+		<%= form_tag takers_path, {:class => "form form-horizontal", :method => "get"} do %>
+		<!-- <input name="authenticity_token" type="hidden" /> -->
+		<div class='form-group'>
+			
+			<%= label_tag :address_from, "Travelling From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_from_address, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_from_city, "Travelling From City", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_from_city, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_from_state, "Travelling From State", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_from_state, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<hr class='hr-dashed'>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_to_address, "Travelling To Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_to_address, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_to_city, "Travelling To City", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_to_city, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Travelling To State", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :travelling_to_state, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<hr class='hr-dashed'>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Mile range from your place of origin", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :miles_from_place_of_origin_to_shipping_from_address, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Mile range from your destination", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :miles_from_takers_destination_to_shipping_to_address, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class="form-actions mg-t-lg">
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">	
+					<%= submit_tag "Check out prospective packages!", :class => 'btn btn-contrast' %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+</div>
+</div>
