@@ -1,29 +1,63 @@
-<table width="1000">
-	<tr>
-		<th>packg #</th>
-		<!-- <td>Package-pickup distance from your departing location</td> -->
-		<th>Package Pickup Dist.</th>
-		<!-- <td>Package-dropoff distance from your arriving location</td> -->
-		<th>Package Dropoff Dist.</th>
-		<th>Package size</th>
-		<!-- <td>Package deadline (Package must arrive before this day and time)</td> -->
-		<th>Package Deadline</th>
-		<th>COD</th>
-		<th>Owner Details</th>
-	</tr>
+<div class='row'>
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<table class='table table-hover'>
+			<thead>
+				<tr>
+					<th>
+					</th>
+					<th>
+						Package #
+					</th>
+					<th>
+						Packg pickup distance
+					</th>
+					<th>
+						Packg dropoff distance
+					</th>
+					<th>
+						Package size
+					</th>
+					<th>
+						Package Deadline
+					</th>
+					<th>
+						COD
+					</th>
+				</tr>
+			</thead>
 
-	<% @orders.each do |order| %>
-	<tr>
-		<td onclick="highlightThis(this)"><%= @counter %></td>
-		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @user_address_from).round(2) %></td>
-		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_to.address), @user_address_to).round(2) %></td>
-		<td>i</td>
-		<td>l</td>
-		<td><%= number_to_currency(10.0) %></td>
-		<td><a href="/takers/<%=order.id%>">View</a></td>
-	</tr>
-	<% @counter += 1 %>
-	<% sleep(12.0/24.0) %>
+			<% @orders.each do |order| %>
+
+			<tbody>
+				<tr class='  '>
+					<td>
+						<a href="/takers/<%=order.id%>">View</a>
+					</td>
+					<td>
+						<%= order.id %>
+					</td>
+					<td>
+						<%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @user_address_from).round(2) %>
+					</td>
+					<td>
+						<%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_to.address), @user_address_to).round(2) %>
+					</td>
+					<td>
+						NA
+					</td>
+					<td>
+						NA
+					</td>
+					<td>
+						<%= number_to_currency(10.0) %>
+					</td>
+				</tr>
+			</tbody>
+			<% @counter += 1 %>
+			<% sleep(12.0/24.0) %>
+			<% end %>
+		</table>
 	</div>
-	<% end %>
-</table>
+	<div class="col-md-1"></div>
+</div>

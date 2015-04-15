@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :talk_to_senders
   # resources :sending_shipments
   # resources :taking_shipments
+  resources :view_general_packages
   
 end

@@ -1,4 +1,51 @@
 <h1><%= @greeting %> What would you like to do today?</h1>
+<div class='panels-wrapper'>
+	<div class='row panels'>
+		<div class='col-sm-4 panel-item'>
+			<a class='panel panel-image' href=<%= new_sending_shipment_path %>>
+				<div class='panel-icon'>
+				</div>
+				<div class='panel-heading'></div>
+				<div class='panel-body'>
+					<h3 class='panel-title'>Send Package</h3>
+					<p>If you have something you'd like to send, log it here. It's likely someone is headed in that direction. He or she can than take it for a much smaller fee than any proffesional shipper!</p>
+				</div>
+			</a>
+		</div>
+		<div class='col-sm-4 panel-item'>
+			<a class='panel panel-image' href=<%= new_taker_path %>>
+				<div class='panel-icon'>
+				</div>
+				<div class='panel-heading'></div>
+				<div class='panel-body'>
+					<h3 class='panel-title'>Take Package</h3>
+					<p>Travelling somewhere? Well, why not make some pocket cash while your at it! Tell us where you're goin and we'll let you know if there's anything you can take.</p>
+				</div>
+			</a>
+		</div>
+		<div class='col-sm-4 panel-item'>
+			<a class='panel panel-image' href=<%= view_general_packages_path %>>
+				<div class='panel-icon'>
+				</div>
+				<div class='panel-heading'></div>
+				<div class='panel-body'>
+					<h3 class='panel-title'>My Packages</h3>
+					<p>Check up on packages that you're in the middle of sending or taking. We'll have all the latest updates!
+					<br>
+					<br>
+					<br>
+					</p>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- <h1><%= @greeting %> What would you like to do today?</h1>
 <h3><%= link_to 'Send a package with someone', new_sending_shipment_path %></h3>
 <a href='/takers/new'><h3>Take a package for someone</h3></a>
-<a href='#'><h3>View my packages</h3></a>
+<a href='#'><h3>View my packages</h3></a> -->

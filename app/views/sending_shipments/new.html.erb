@@ -1,52 +1,152 @@
-<%= form_tag sending_shipment_path do %>
-		<h3>Shipping From:</h3>
-		<%= label_tag "Adress:" %>
-		<%= text_field_tag :shipping_from %>
-		<br>
-		<br>
-		<%= label_tag "City:" %>
-		<%= text_field_tag :shipping_from_city %>
-		<br>
-		<br>
-		<%= label_tag "State:" %>
-		<%= text_field_tag :shipping_from_state %>
-		<br>
-		<br>
-		<h3>Shipping To:</h3>
-		<%= label_tag 'Adress:' %>
-		<%= text_field_tag :shipping_to_address %>
-		<br>
-		<br>
-		<%= label_tag 'city:' %>
-		<%= text_field_tag :shipping_to_city %>
-		<br>
-		<br>
-		<%= label_tag 'State:' %>
-		<%= text_field_tag :shipping_to_state %>
-		<br>
-		<br>
-		<h3>More Info</h3>
-		<%= label_tag 'What is the latest DATE your package can get to your desired destination? (Enter something like 09/15/15 )' %>
-		<%= text_field_tag :date %>
-		<br>
-		<br>
-		<%= label_tag 'What is the latest TIME your package can get to your desired destination? (Enter something like 21:30:00 )' %>
-		<%= text_field_tag :time %>
-		<br>
-		<br>
-		<%= label_tag 'package height:' %>
-		<%= text_field_tag :package_height %>
-		<br>
-		<br>
-		<%= label_tag 'package legnth:' %>
-		<%= text_field_tag :package_length %>
-		<br>
-		<br>
-		<%= label_tag 'package width:' %>
-		<%= text_field_tag :package_width %>
-		<br>
-		<br>
-		<%= label_tag 'package package weight:' %>
-		<%= text_field_tag :package_weight %>
-		<%= submit_tag "Get shipping details!" %>
+<div class='row'>
+	<div class='col-sm-12'>
+		<!-- <form class="form form-horizontal" method="post" action="#" accept-charset="UTF-8"> -->
+	<div class="jumbotron">	
+		<%= form_tag sending_shipment_path, {:class => "form form-horizontal"} do %>
+		<!-- <input name="authenticity_token" type="hidden" /> -->
+		<div class='form-group'>
+			
+			<%= label_tag :address_from, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_from_city, "Shipping From City", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from_city, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_from_state, "Shipping From State", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from_state, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<hr class='hr-dashed'>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_to_address, "Shipping To Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_to_address, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :shipping_to_city, "Shipping To City", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_to_city, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping To State", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_to_state, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<hr class='hr-dashed'>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Package Deadline (date)", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :date, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Package Deadline (time)", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :time, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<hr class='hr-dashed'>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "package_height", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :package_height, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Package Width", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :package_width, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Package Length", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :package_length, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Package Weight", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :package_weight, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+
+		</div>
+
+		<div class="form-actions mg-t-lg">
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">	
+					<%= submit_tag "Get shipping details!", :class => 'btn btn-contrast' %>
+				</div>
+			</div>
+		</div>
+		<!-- <div class='form-group'>
+			<label class='col-md-3 control-label' for='input-password'>Password field</label>
+			<div class='col-md-5'>
+				<input class='form-control' id='input-password' placeholder='Password field' type='password' value='Top secret!'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class='col-md-3 control-label' for='input-textarea'>Textarea</label>
+			<div class='col-md-5'>
+				<textarea class='form-control' id='input-textarea' placeholder='Textarea' rows='3'></textarea>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class='col-md-3 control-label' for='input-disabled-input-1'>Disabled input</label>
+			<div class='col-md-5'>
+				<input class='form-control' disabled='' id='input-disabled-input-1' placeholder='Disabled input here...' type='text'>
+			</div>
+		</div> -->
+	<!-- </form> -->
 	<% end %>
+	</div>
+</div>
+</div>
+

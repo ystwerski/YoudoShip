@@ -1,0 +1,160 @@
+<table width="1000">
+	<tr>
+		<th>packg #</th>
+		<!-- <td>Package-pickup distance from your departing location</td> -->
+		<th>Package Pickup Dist.</th>
+		<!-- <td>Package-dropoff distance from your arriving location</td> -->
+		<th>Package Dropoff Dist.</th>
+		<th>Package size</th>
+		<!-- <td>Package deadline (Package must arrive before this day and time)</td> -->
+		<th>Package Deadline</th>
+		<th>COD</th>
+		<th>Owner Details</th>
+	</tr>
+
+	<% @orders.each do |order| %>
+	<tr>
+		<td><%= @counter %></td>
+		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_from.address), @user_address_from).round(2) %></td>
+		<td><%= Geocoder::Calculations.distance_between(Geocoder.coordinates(order.shipping_to.address), @user_address_to).round(2) %></td>
+		<td>i</td>
+		<td>l</td>
+		<td><%= number_to_currency(10.0) %></td>
+		<td><a href="/takers/<%=order.id%>">View</a></td>
+	</tr>
+	<% @counter += 1 %>
+	<% sleep(12.0/24.0) %>
+	</div>
+	<% end %>
+</table>
+
+
+					<i class='fa-icon-time icon'></i>
+
+					<i class='fa-icon-cog icon'></i>
+
+					<i class='fa-icon-rocket icon'></i>
+
+
+
+<div class='row'>
+	<div class='col-sm-12'>
+		<!-- <form class="form form-horizontal" method="post" action="#" accept-charset="UTF-8"> -->
+	<div class="jumbotron">	
+		<%= form_tag sending_shipment_path, {:class => "form form-horizontal"} do %>
+		<!-- <input name="authenticity_token" type="hidden" /> -->
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+		</div>
+		<div class='form-group'>
+			
+			<%= label_tag :address, "Shipping From Address", :class => "col-md-3 control-label" %>
+			<!-- <label class='col-md-3 control-label' for='input-text'>Text field</label> -->
+			<div class='col-md-5'>
+			<%= text_field_tag :shipping_from, "", :class => 'form-control', :id => 'input-text' %>
+				<!-- <input class='form-control' id='input-text' placeholder='Text field' type='text'> -->
+			</div>
+
+		</div>
+
+		<div class='form-group'>
+			<label class='col-md-3 control-label' for='input-password'>Password field</label>
+			<div class='col-md-5'>
+				<input class='form-control' id='input-password' placeholder='Password field' type='password' value='Top secret!'>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class='col-md-3 control-label' for='input-textarea'>Textarea</label>
+			<div class='col-md-5'>
+				<textarea class='form-control' id='input-textarea' placeholder='Textarea' rows='3'></textarea>
+			</div>
+		</div>
+		<div class='form-group'>
+			<label class='col-md-3 control-label' for='input-disabled-input-1'>Disabled input</label>
+			<div class='col-md-5'>
+				<input class='form-control' disabled='' id='input-disabled-input-1' placeholder='Disabled input here...' type='text'>
+			</div>
+		</div>
+	<!-- </form> -->
+	<% end %>
+	</div>
+</div>
+</div>

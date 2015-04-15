@@ -4,7 +4,8 @@ class TalkToSendersController < ApplicationController
 		@order = Order.find(params[:order_id])
 		@sender = User.find(@order.sender_id)
 		@questions_or_comments = params[:questions_or_comments_to_sender]
-		UserMailer.comments(@sender, @questions_or_comments).deliver_now
+		@taker = User.find(current_user.id)
+		UserMailer.comments(@sender, @questions_or_comments, @taker, @order).deliver_now
 		# redirect_to home_path
 	end
 
