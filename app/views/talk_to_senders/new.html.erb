@@ -1,4 +1,27 @@
-<%= form_tag "/talk_to_senders" do %>
+<div class="row">
+	<div class="col-sm-12">
+		<%= form_tag sending_shipment_path, {:class => "form form-horizontal"} do %>
+			<div class="form-group">
+				<div class="col-md-5">
+					<%= text_field_tag :questions_or_comments_to_sender, "", :class => 'form-control', :id => 'input-textarea', :placeholder => "Textarea", :rows => "3" %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<%= form_tag new_talk_to_sender_path do %>
 	<div class="">
 		<%= text_field_tag :questions_or_comments_to_sender, :class => "whatever" %>
 	</div>

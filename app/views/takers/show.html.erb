@@ -1,3 +1,30 @@
+<% @user.comments.each do |comment| %>
+<div class='row quotes'>
+	<div class='carousel carousel-default slide carousel-auto' id='carousel-testimonials'>
+		<div class='carousel-inner'>
+			<div class='item active quote'>
+				<div class='col-sm-12 text-center'>
+					<p class='lead'><%= comment.comment %></p>
+					<div class='author-wrapper'>
+						<p class='author'>
+							<strong><%= User.find(comment.commentor_id).first_name %></strong>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+<hr>
+
+
+
+
+
+
+<!-- 
+
 <table width="550">
 	<tr>
 		<th><h3>Package Owner:</h3></th>
@@ -9,7 +36,7 @@
 		<td><p><%= @order.shipping_from.address %></p></td>
 		<td><p><%= @order.shipping_to.address %></p></td>
 	</tr>
-</table>
+</table> -->
 
 
 
@@ -22,35 +49,43 @@
 
 <!-- <h3>Package owner:</h3>
 <p><%= @user.first_name %> <%= @user.last_name %></p> -->
+	<h4><p class="text-center">Total packages sent by owner prior to this package:</p></h4>
+	<p class="text-center"><%= @user.total_sent %></p>
 
-<h3>Comments on this owner:</h3>
-<% @user.comments.each do |comment| %>
-	<ul>
-	<li><%= comment.comment %> - <%= User.find(comment.commentor_id).first_name %></li>
-	</ul>
-<% end %>
-
-<h3>Total packages sent by owner prior to this package:</h3>
-<p><%= @user.total_sent %></p>
-
-
-<h3>Have anything you'd like to clarify with the owner before taking this package?</h3>
+<div class="page-header page-header-with-icon">
+<h4>Have anything you'd like to clarify with the owner before taking this package?</h4>
+</div>
 
 <%= form_tag "/talk_to_senders/new", :method => :get do %>
 	<%= hidden_field_tag :order_id, @order.id %>
-	<%= submit_tag "Click here." %>
+	<div class="form-actions mg-t-lg">
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">	
+					<%= submit_tag "Click Here!", :class => 'btn btn-contrast' %>
+				</div>
+			</div>
+		</di>
 <% end %>
+</div>
+<br>
+<br>
 
-
-<!-- <textarea class="form-control" rows="3"></textarea> -->
-
-
-<p>Otherwise, if you're ready to commit to taking this package, hit COMMMIT!!
+<div class="page-header page-header-with-icon">
+<h4>Otherwise, if you're ready to commit to taking this package, hit COMMMIT!!</h4>
+</div>
 
 <br>
 
-Upon hitting COMMIT we'll notify the owner that you are ready to take his package. As soon as he agrees we'll give you his addresses and you'll be on your way!</p>
+<div class="col-sm-6 col-sm-offset-3">
+<p class="text-justify">Upon hitting COMMIT we'll notify the owner that you are ready to take his package. As soon as he agrees we'll give you his addresses and you'll be on your way!</p>
+</div>
 
 <%= form_tag "/talk_to_senders/#{@order.id}", :method => :patch do %>
-	<%= submit_tag "COMMIT" %>
+<div class="form-actions mg-t-lg">
+			<div class="row">
+				<div class="col-md-9 col-md-offset-3">	
+	<%= submit_tag "COMMIT!", :class => 'btn btn-contrast' %>
+				</div>
+			</div>
+		</di>
 <% end %>
