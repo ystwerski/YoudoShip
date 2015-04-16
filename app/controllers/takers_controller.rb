@@ -9,12 +9,13 @@ class TakersController < ApplicationController
 
 		user_address_from = params[:travelling_from_address] + " " + params[:travelling_from_city] + ", " + params[:travelling_from_state]
 		user_address_to = params[:travelling_to_address] + " " + params[:travelling_to_city] + ", " + params[:travelling_to_state]
-
+		p user_address_from
 		@user_address_from = Geocoder.coordinates(user_address_from)
 		@user_address_to = Geocoder.coordinates(user_address_to)
+		p @user_address_from
 
-		list_from = ShippingFrom.near(@user_address_from, params[:miles_from_place_of_origin_to_shipping_from_address])
-		list_to = ShippingTo.near(@user_address_to, params[:miles_from_takers_destination_to_shipping_to_address])
+		list_from = ShippingFrom.near(@user_address_from, params[:miles_from_place_of_origin_to_shipping_from_address].to_i)
+		list_to = ShippingTo.near(@user_address_to, params[:miles_from_takers_destination_to_shipping_to_address].to_i)
 
 		orders_non_objects_from = []
 		orders_non_objects_to = []
@@ -32,7 +33,7 @@ class TakersController < ApplicationController
 		orders_non_objects_from.each do |order|
 			orders_objects_from << order[0]
 		end
-		# p orders_objects_from
+		p orders_objects_from.count
 		orders_non_objects_to.each do |order|
 			orders_objects_to << order[0]
 		end
