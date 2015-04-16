@@ -66,6 +66,7 @@ class SendingShipmentsController < ApplicationController
 		# @package_length = params[:package_length]
 		# @package_width = params[:package_width]
 		# @package_weight = params[:package_weight]
+		redirect_to view_sending_packages_path
 	end
 
 	def update

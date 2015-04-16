@@ -1,0 +1,40 @@
+<div class='row'>
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+		<table class='table table-hover'>
+			<thead>
+				<tr>
+					<th>
+					</th>
+					<th>
+						Package #
+					</th>
+					<th>
+						Packg Shipping From Address
+					</th>
+					<th>
+						Packg Shipping To Address
+					</th>
+
+				</tr>
+			</thead>
+			<% @orders.each do |order| %>
+
+			<tbody>
+				<tr class='  '>
+					<td>
+					<%= form_tag "view_taking_packages/#{order.id}", :method => :delete do %>
+					 <%= submit_tag "Delete" %>
+					 <% end %>
+					</td>
+						<%= order.shipping_from.address %>
+					</tr>
+					</td>
+						<%= order.shipping_to.address %>
+					</tr>
+			</tbody>
+			<% end %>
+		</table>
+	</div>
+	<div class="col-md-1"></div>
+</div>

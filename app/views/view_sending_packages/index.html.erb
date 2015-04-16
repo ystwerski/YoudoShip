@@ -7,9 +7,6 @@
 					<th>
 					</th>
 					<th>
-						Posted for shippers to see?
-					</th>
-					<th>
 						Package #
 					</th>
 					<th>
@@ -24,6 +21,9 @@
 					<th>
 						Price
 					</th>
+					<th>
+						Shipper Assigned?
+					</th>
 				</tr>
 			</thead>
 
@@ -37,15 +37,7 @@
 					 <% end %>
 						
 					</td>
-					<% if order.confirmed %>
-					<td>
-						Yes
-					</td>
-					<% elsif %>
-						<td>
-						No
-					</td>
-					<% end %>
+
 					<td>
 						<%= order.id %>
 					</td>
@@ -61,6 +53,15 @@
 					<td>
 						<%= number_to_currency(order.subtotal) %>
 					</td>
+					<% if order.confirmed %>
+					<td>
+						YES!
+					</td>
+					<% else %>
+					<td>
+						no
+					</td>
+					<% end %>
 				</tr>
 			</tbody>
 			<% end %>

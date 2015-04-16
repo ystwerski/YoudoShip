@@ -47,7 +47,7 @@ class TakersController < ApplicationController
 		end
 		@orders = []
 		orders.each do |order|
-			if order && order.confirmed
+			if order
 				@orders << order
 			end
 		end
