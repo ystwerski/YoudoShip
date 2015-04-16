@@ -10,10 +10,10 @@ class ViewSendingPackagesController < ApplicationController
 		@order = Order.find(params[:id])
 	end
 
-	def delete
+	def destroy
 		@order = Order.find(params[:id])
 		@order.destroy
-		render 'index'
+		redirect_to view_sending_packages_path
 	end
 
 end

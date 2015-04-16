@@ -75,7 +75,8 @@ class SendingShipmentsController < ApplicationController
 			if !@order.sender_id
 				@order.update({:sender_id => current_user.id})
 			end
-		elsif 
+			redirect_to view_sending_packages_path
+		else 
 			redirect_to new_user_session_path
 		end
 			

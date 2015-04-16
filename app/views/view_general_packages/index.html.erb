@@ -1,10 +1,24 @@
-<button>
-	<a href=<%= view_sending_packages_path %>><h3>Packages that you are currently sending.</h3></a>
-</button>
-
-<br>
-<br>
-
-<button>
-	<a href=<%= view_taking_packages_path %>><h3>Packages that you are attempting to deliver for someone else.</h3></a>
-</button>
+<div class='panels-wrapper'>
+	<div class='row panels'>
+		<div class='col-sm-4 panel-item'>
+			<a class='panel panel-image' href=<%= view_sending_packages_path %>>
+				<div class='panel-icon'>
+				</div>
+				<div class='panel-heading'></div>
+				<div class='panel-body'>
+					<h3 class='panel-title'>Packages that you are currently sending</h3>
+				</div>
+			</a>
+		</div>
+		<div class='col-sm-4 panel-item'>
+			<a class='panel panel-image' href=<%= view_taking_packages_path %>>
+				<div class='panel-icon'>
+				</div>
+				<div class='panel-heading'></div>
+				<div class='panel-body'>
+					<h3 class='panel-title'>Packages that you are attempting to deliver for someone else</h3>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

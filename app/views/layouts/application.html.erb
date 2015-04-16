@@ -7,6 +7,33 @@
   <%= csrf_meta_tags %>
   
 </head>
+<div id="wrapper">
+	<header id="header">
+		<div class="container">
+			<nav class="navbar navbar-collapsed-sm navbar-default" id="nav" role="navigation">
+				<div class="navbar-header">
+					<div class="collapse navbar-collapse navbar-header-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="/general_infos"><span>Home</span></a></li>
+							<% if current_user %>
+							<li><a href="users/sign_out"><span>Sign out</span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span></span></a></li>
+							<li><a href="#"><span> Hi <%= current_user.first_name %>!</span></a></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+</div>
+
 <body>
 	<div id="main-content">
 <% flash.each do |name, message| %>

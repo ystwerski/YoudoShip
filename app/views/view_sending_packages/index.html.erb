@@ -7,6 +7,9 @@
 					<th>
 					</th>
 					<th>
+						Posted for shippers to see?
+					</th>
+					<th>
 						Package #
 					</th>
 					<th>
@@ -18,6 +21,9 @@
 					<th>
 						Package Deadline
 					</th>
+					<th>
+						Price
+					</th>
 				</tr>
 			</thead>
 
@@ -26,19 +32,34 @@
 			<tbody>
 				<tr class='  '>
 					<td>
-						<a href="/takers/<%=order.id%>">View</a>
+					 <%= form_tag "view_sending_packages/#{order.id}", :method => :delete do %>
+					 <%= submit_tag "Delete" %>
+					 <% end %>
+						
 					</td>
+					<% if order.confirmed %>
+					<td>
+						Yes
+					</td>
+					<% elsif %>
+						<td>
+						No
+					</td>
+					<% end %>
 					<td>
 						<%= order.id %>
 					</td>
 					<td>
-						<%= order.shipping_from %>
+						<%= order.shipping_from.address %>
 					</td>
 					<td>
-						<%= order.shipping_to %>
+						<%= order.shipping_to.address %>
 					</td>
 					<td>
 						NA
+					</td>
+					<td>
+						<%= number_to_currency(order.subtotal) %>
 					</td>
 				</tr>
 			</tbody>
