@@ -39,7 +39,7 @@ class SendingShipmentsController < ApplicationController
 		
 
 
-		@order = Order.new({:confirmed => false, :packages => params[:packages], :shipping_from_id => @shipping_from.id, :shipping_to_id => @shipping_to.id, :subtotal => params[:price].to_i, :tax => params[:price].to_i * 0.05, :total => params[:price].to_i - (params[:price].to_i * 0.05)})
+		@order = Order.new({:confirmed => false, :packages => params[:packages], :shipping_from_id => @shipping_from.id, :shipping_to_id => @shipping_to.id, :subtotal => params[:price].to_f, :tax => params[:price].to_f * 0.05, :total => params[:price].to_f - (params[:price].to_f * 0.05)})
 		
 		if current_user
 			@order.update({:sender_id => current_user.id})

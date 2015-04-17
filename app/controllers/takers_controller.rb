@@ -48,10 +48,13 @@ class TakersController < ApplicationController
 		end
 		@orders = []
 		orders.each do |order|
+			p order.class
 			if order
+				p order.class
 				@orders << order
 			end
 		end
+		# p orders
 		p orders.count
 		p @orders.count
 

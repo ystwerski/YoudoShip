@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
   		@sender = sender
   		@taker = taker
   		@order = order
-  		mail(to: @sender.email, subject: 'You have a shipper for your package!!!')
+  		mail(reply_to: @taker.email, to: @sender.email, subject: 'You have a shipper for your package!!!')
   	end
 
   	def confirm_to_taker()
